@@ -1,4 +1,4 @@
-# dash-bootstrap-components
+# dash-carbon-components
 
 [Plotly Dash][dash-homepage] is great! However, creating the initial
 layout can require a lot of boilerplate. *dash-bootstrap-components*

@@ -20,7 +20,7 @@ Version {version_string}
 
 HERE = Path(__file__).parent
 
-DASH_BOOTSTRAP_DIR = HERE / "dash_bootstrap_components"
+DASH_BOOTSTRAP_DIR = HERE / "dash_carbon_components"
 JS_DIR = HERE
 
 
@@ -72,7 +72,7 @@ def release(ctx, version):
     run(
         "git add package.json package-lock.json "
         "docs/requirements.txt "
-        "dash_bootstrap_components/_version.py"
+        "dash_carbon_components/_version.py"
     )
     run(f'git commit -m "Bump version to {version}"')
     info(f"Tagging version {version} and pushing to GitHub")
@@ -110,7 +110,7 @@ def postrelease(ctx, version):
     run(f"git checkout -b postrelease-{version}")
     run(
         "git add package.json package-lock.json "
-        "dash_bootstrap_components/_version.py"
+        "dash_carbon_components/_version.py"
     )
     run('git commit -m "Back to dev"')
     run(f"git push origin postrelease-{version}")
@@ -130,7 +130,7 @@ def build_publish(version):
 
 
 def clean():
-    paths_to_clean = ["dash_bootstrap_components/_components", "dist/", "lib/"]
+    paths_to_clean = ["dash_carbon_components/_components", "dist/", "lib/"]
     for path in paths_to_clean:
         run(f"rm -rf {path}")
 
@@ -175,8 +175,8 @@ def set_documentation_version(version):
     with docs_requirements_path.open() as f:
         docs_requirements = f.readlines()
     for iline, line in enumerate(docs_requirements):
-        if "dash_bootstrap_components" in line:
-            updated_line = f"dash_bootstrap_components=={version}\n"
+        if "dash_carbon_components" in line:
+            updated_line = f"dash_carbon_components=={version}\n"
             docs_requirements[iline] = updated_line
     with open(docs_requirements_path, "w") as f:
         f.writelines(docs_requirements)

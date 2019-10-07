@@ -11,7 +11,7 @@ def _get_version():
     """ Get version by parsing _version programmatically """
     version_ns = {}
     with open(
-        os.path.join(HERE, "dash_bootstrap_components", "_version.py")
+        os.path.join(HERE, "dash_carbon_components", "_version.py")
     ) as f:
         exec(f.read(), {}, version_ns)
     version = version_ns["__version__"]
